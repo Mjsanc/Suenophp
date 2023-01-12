@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./bebe.css">
+    <link rel="stylesheet" href="./assets/css/bebe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./cuadrado.jpg" rel="icon">
     <title>Pequenino </title>
@@ -53,37 +53,37 @@
 
           <div class="mySlides">
             <div class="numbertext">1 / 6</div>
-              <img src="./lois 8,16/1670371088188.jpg"alt="lois"></img>
+              <img src="./img/lois 8,16/1670371088188.jpg"alt="lois"></img>
               <div class="text">Lois</div>
             </div>
 
           <div class="mySlides">
              <div class="numbertext">2 / 6</div>
-                <img src="./lois 8,16/1670371088197.jpg"alt="lois"></img>
+                <img src="./img/lois 8,16/1670371088197.jpg"alt="lois"></img>
                 <div class="text">Lois</div>
             </div> 
 
           <div class="mySlides">
             <div class="numbertext">3 / 6</div>
-              <img src="./st boy/1670625617488 (2).jpg"alt="street monkey"></img>
+              <img src="./img/st boy/1670625617488 (2).jpg"alt="street monkey"></img>
               <div class="text">Street monkey </div>
             </div>  
             
           <div class="mySlides">
             <div class="numbertext">4 / 6</div>  
-              <img src="./st boy/1670625617497 (2).jpg"alt="street monkey"></img>
+              <img src="./img/st boy/1670625617497 (2).jpg"alt="street monkey"></img>
               <div class="text">Street monkey </div>
           </div>
 
             <div class="mySlides">
               <div class="numbertext">5 / 6</div>
-                <img src="./st boy/1670625617506 (2).jpg"alt="street monkey"></img>
+                <img src="./img/st boy/1670625617506 (2).jpg"alt="street monkey"></img>
                 <div class="text">Street monkey </div>
               </div>
             
             <div class="mySlides">
               <div class="numbertext">6 / 6</div>
-                <img src="./st boy/1670625617514 (2).jpg"alt="street monkey"></img>
+                <img src="./img/st boy/1670625617514 (2).jpg"alt="street monkey"></img>
                 <div class="text">Street monkey</div>
               </div>
          
@@ -149,7 +149,7 @@
            
           </div>
           </footer>
-  <script src="./js_Arch/bebe.js"></script>
+  <script src="./assets/js_Arch/bebe.js"></script>
 
   </body>
 </html>

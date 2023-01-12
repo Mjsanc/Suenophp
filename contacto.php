@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="contacto.css">
+    <link rel="stylesheet" href="assets/css/contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./cuadrado.jpg" rel="icon">
     <title>Contacto</title>
@@ -117,7 +117,7 @@
 
           <div class="imagen">
            <figure >
-            <img src="./imgTienda/" alt="imagen de nuestra tienda">    
+            <img src="./imgTienda/tienda-interior.jpg" alt="imagen de nuestra tienda">    
             <figcaption>Nuestra tienda, siempre preparada para cumplir tus sueños.</figcaption>
             </figure>
           </div>
@@ -168,8 +168,8 @@
   </div>
   </footer>
 
-  <script src="./js_Arch/bebe.js"></script>
-  <script src="./js_Arch/ejmfom.js"></script>
+  <script src="./assets/js_Arch/bebe.js"></script>
+  <script src="./assets/js_Arch/ejmfom.js"></script>
 </body>
 
 

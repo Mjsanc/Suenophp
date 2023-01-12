@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="bebe.css">
+    <link rel="stylesheet" href="assets/css/bebe.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="./cuadrado.jpg" rel="icon">
     <title>Bebe</title>
@@ -52,23 +52,23 @@
 
             <div class="mySlides">
               <div class="numbertext">1 / 4</div>
-                <img src="./bebe/1670756607773[848].jpg" alt="bebe"></img>
+                <img src="./img/bebe/1670756607773[848].jpg" alt="bebe"></img>
             </div>
        
 
             <div class="mySlides">
               <div class="numbertext">2 / 4</div>
-                <img src="./bebe/1670756607783[847].jpg"alt="bebe"></img>
+                <img src="./img/bebe/1670756607783[847].jpg"alt="bebe"></img>
             </div>
 
             <div class="mySlides">
               <div class="numbertext">3 / 4</div>
-                <img src="./bebe/1670756764269[849] (2).jpg"alt="bebe"></img>
+                <img src="./img/bebe/1670756764269[849] (2).jpg"alt="bebe"></img>
             </div>
 
             <div class="mySlides">
               <div class="numbertext">4 / 4</div>
-                  <img src="./bebe/1670756858586[850] (2).jpg"alt="bebe"></img>
+                  <img src="./img/bebe/1670756858586[850] (2).jpg"alt="bebe"></img>
               </div>
         
           <!-- Next and previous buttons -->
@@ -129,7 +129,7 @@
        
       </div>
       </footer>
-      <script src="./js_Arch/bebe.js"></script>
+      <script src="./assets/js_Arch/bebe.js"></script>
 </body>
 
 
