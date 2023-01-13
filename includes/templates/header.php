@@ -9,7 +9,8 @@
     
     <title>Sueno</title>
         <link rel="stylesheet" href="<?= WEBROOT ?>./assets/css/index.css">
-
+        <link rel="stylesheet" href="<?= WEBROOT ?>./assets/css/contacto.css">
+        <link rel="stylesheet" href="<?= WEBROOT ?>./assets/css/bebe.css">
 </head>
 <body>
 

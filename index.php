@@ -5,7 +5,7 @@ IncluirTemplate('header');
 ?>
 
 
-IncluirTemplate
+
     <main>   
         <img src="./img/imgIndex/madera (4).jpg" alt="bebe"></img>
           <div class="enlace">

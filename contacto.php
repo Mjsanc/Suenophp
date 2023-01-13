@@ -1,38 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/contacto.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="./cuadrado.jpg" rel="icon">
-    <title>Contacto</title>
-    
-</head>
-<body>
-  
-  <div><img src="imgIndex/Rectangular.jpg" alt="Logotipo"></img></div>
-  <header id="navegador">
-    
-    <nav id="nav" class="main-nav" >
-      <div class="nav-links">
-        <ul id="list">
-          <li><a href="./index.html">Principal</a>
-          <li><a href="./bebe.html">Bebes</a>
-          <li><a href="./pequenino.html">Niños</a></li>
-          <li><a href="./pequenina.html">Niñas</a></li>
-          <li><a href="./contacto.html">Contacto</a></li>       
-        </ul>
-      </div>
-    </nav>
+<?php
 
-    <button id="button-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>  
-    <main>
+require'includes/funciones.php';
+IncluirTemplate('header');
+
+if (isset($_POST['ok'])) {
+  $nombre = trim($_POST['nombre']);
+  $mensaje='';
+  if ($nombre == '')
+    { $mensaje .= "El nombre es obligatorio.\n"; }
+  if (strlen($nombre) < 4)
+    { $mensaje .= "El nombre debe tener al menos 4 caracteres.\n"; } 
+  } else { 
+    $nombre='';$mensaje='';
+  }
+?>
+
 
       <div id="frase">
         <h3>En sueños nos convertiremos en tu tienda de ropa infantil de referencia, para que tus peques luzcan a la perfección en cualquier evento.</h3>
@@ -42,14 +24,14 @@
 
       <div class="contacto">
         <article class="form">
-          <form action="formulario" method="post" id="formulario" name="prueba" novalidate>
+          <form action="formulario.php" method="post" id="formulario" name="prueba" novalidate>
 
             <fieldset>
               <legend>Campo personal</legend> 
 
               <div>
                 <label for="nombre">Nombre*</label>
-                <input type="text" name="nombre" id="nombre" autocomplete="on" required autofocus placeholder="Nombre"></input>
+                <input type="text" name="nombre" id="nombre" autocomplete="on" required autofocus placeholder="Nombre"value="<?php echo $nombre; ?>"></input>
               </div>
 
               <div>
@@ -106,8 +88,9 @@
               </div> 
 
               <div>
-                  <input class="enviar" type="submit" id="btn-enviar" value="Enviar" >
-              </div>
+                  <input class="enviar" type="submit" id="btn-enviar" name="ok" value="Enviar" >
+                  <?php echo $mensaje; ?>
+                </div>
 
             </fieldset>
           </form> 
@@ -117,60 +100,20 @@
 
           <div class="imagen">
            <figure >
-            <img src="./imgTienda/tienda-interior.jpg" alt="imagen de nuestra tienda">    
+            <img src="./img/imgTienda/tienda-interior.jpg" alt="imagen de nuestra tienda">    
             <figcaption>Nuestra tienda, siempre preparada para cumplir tus sueños.</figcaption>
             </figure>
           </div>
           
     </main>
 
-    <footer>
-
-    <div class="escaparate">
+    <?php
+   IncluirTemplate('footer');
    
-      <div class="icon-phone">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <span class="tlf"> Dirección</span>
-        <p>Calle Real 31 Mengibar (Jaén)</p>
-      </div>
+   ?>
 
-      <div class="icon-phone">
-        <i class="fa-solid fa-phone"></i>
-        <span class="tlf">Teléfono</span>
-        <p>651302674</p>
-      </div>
-
-      <div class="icon-phone">
-        <i class="fa-solid fa-shop"></i>
-        <span class="tlf">Horario</span>
-        <p>Lunes a Viernes de 10 a 13.30// 17.30 a 20.30</p>
-        <p>Sabados de 10 a 13.30 </p>
-        <p>Domingo cerrados</p>
-      </div>
-
-      <div class="icon-phone">
-        <i class="fa-brands fa-facebook-f"></i>
-        <span class="tlf"> Síguenos</span>
-        <i class="fa-brands fa-instagram"></i>
-        <div class="enl-faceboox">
-          <a href="https://www.facebook.com/people/Sue%C3%B1os-Meng%C3%ADbar/100084962364241/">Facebook -</a>
-          <a href="https://instagram.com/suenosmengibar?igshid=YmMyMTA2M2Y=">Instagram</a>
-        </div>
-      </div>
-
-    </div>    
-  
-   <div class="frame">
-
-    <span class="tlf">¿Donde nos encontramos?</span>
-    <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=calle%20real%2031%20Mengibar,%20jaen+(Sueno)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/car-satnav-gps/">GPS devices</a></iframe></div>
-   
-  </div>
-  </footer>
-
-  <script src="./assets/js_Arch/bebe.js"></script>
-  <script src="./assets/js_Arch/ejmfom.js"></script>
 </body>
+</html>
 
 
 
