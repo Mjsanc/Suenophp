@@ -248,6 +248,10 @@ footer p{
   color:white
 }
 
+.errores{
+  color: red;
+}
+
 
 @media (min-width: 768px) {
   .enlace{

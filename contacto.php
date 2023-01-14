@@ -3,18 +3,38 @@
 require'includes/funciones.php';
 IncluirTemplate('header');
 
-if (isset($_POST['ok'])) {
-  $nombre = trim($_POST['nombre']);
-  $mensaje='';
-  if ($nombre == '')
-    { $mensaje .= "El nombre es obligatorio.\n"; }
-  if (strlen($nombre) < 4)
-    { $mensaje .= "El nombre debe tener al menos 4 caracteres.\n"; } 
-  } else { 
-    $nombre='';$mensaje='';
-  }
-?>
+const NAME_REQUIRED = 'Please enter your name';
+const EMAIL_REQUIRED = 'Please enter your email';
+const EMAIL_INVALID = 'Please enter a valid email';
 
+
+$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+$inputs['name'] = $name;
+
+if ($name) {
+    $name = trim($name);
+    if ($name === '') {
+        $errors['name'] = NAME_REQUIRED;
+    }
+} else {
+    $errors['name'] = NAME_REQUIRED;
+}
+
+
+
+$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+$inputs['email'] = $email;
+if ($email) {
+    
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    if ($email === false) {
+        $errors['email'] = EMAIL_INVALID;
+    }
+} else {
+    $errors['email'] = EMAIL_REQUIRED;
+}
+
+?>
 
       <div id="frase">
         <h3>En sueños nos convertiremos en tu tienda de ropa infantil de referencia, para que tus peques luzcan a la perfección en cualquier evento.</h3>
@@ -31,7 +51,7 @@ if (isset($_POST['ok'])) {
 
               <div>
                 <label for="nombre">Nombre*</label>
-                <input type="text" name="nombre" id="nombre" autocomplete="on" required autofocus placeholder="Nombre"value="<?php echo $nombre; ?>"></input>
+                <input type="text" name="nombre" id="nombre" autocomplete="on" required autofocus placeholder="Nombre"></input>
               </div>
 
               <div>
@@ -46,7 +66,7 @@ if (isset($_POST['ok'])) {
 
               <div>  
                 <label for="email">Email*</label>
-                <input type="email" name="email" id="email" autocomplete="on" placeholder="Email">
+                <input type="email" name="email" id="email" autocomplete="on" placeholder="Email" <?php  echo $errors['email'] ?? '' ?>>
               </div>
 
               <div>
@@ -89,10 +109,23 @@ if (isset($_POST['ok'])) {
 
               <div>
                   <input class="enviar" type="submit" id="btn-enviar" name="ok" value="Enviar" >
-                  <?php echo $mensaje; ?>
+                  
                 </div>
 
             </fieldset>
+                    <?php  if (count($errors) === 0) : ?>
+            section>
+                h2>
+                    Thanks <?php  echo htmlspecialchars($name) ?> for your subscription!
+                h2>
+                p>Please follow the steps below to complete your subscription:p>
+                ol>
+                    li>Check your email (<?php  echo htmlspecialchars($email) ?>) - Find the message sent from webmaster@phpbasico.comli>
+                    li>Click to confirm - Click on the link in the email to confirm your subscription.li>
+                ol>
+            section>
+
+<?php  endif ?>
           </form> 
           
         </article>
