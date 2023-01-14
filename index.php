@@ -36,7 +36,7 @@ IncluirTemplate('header');
       </div>
       
       <h2 class="ultima">Ofertas de última hora</h2>
-      
+      <?php include 'includes/templates/oferta.php'; ?>
       
 
     </main>

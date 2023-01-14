@@ -27,12 +27,12 @@ catch (Exception $e){
 ?>
 
         <div class="oferta">
-          <figure>
-            <img src="<?= WEBROOT ?>./imgOferta/" <?php echo $propiedad['imagen']; ?> alt="conjunto-nino">
-              <figcaption><?php echo $propiedad['seccion']; ?></figcaption>
+        <figure>
+            <img src="<?= WEBROOT ?>/imgOferta/<?php echo $propiedad['imgNombre']; ?>"alt="imagen">
+              <figcaption><?php echo $propiedad['Seccion']; ?></figcaption>
               <figcaption><?php echo $propiedad['descripcion']; ?><h5>Precio <?php echo $propiedad['precio']; ?> €</h5></figcaption>
-             
-          </figure>
+        </figure>
+        
         </div>
 <?php endwhile; ?>    
       </section>
