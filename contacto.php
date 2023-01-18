@@ -3,37 +3,25 @@
 require'includes/funciones.php';
 IncluirTemplate('header');
 
-const NAME_REQUIRED = 'Please enter your name';
-const EMAIL_REQUIRED = 'Please enter your email';
-const EMAIL_INVALID = 'Please enter a valid email';
+  if (isset($_POST['ok'])){
 
+        $nombre = trim($_POST['nombre']);
+        $email = $_POST['email'];
+        $error = array();
 
-$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-$inputs['name'] = $name;
-
-if ($name) {
-    $name = trim($name);
-    if ($name === '') {
-        $errors['name'] = NAME_REQUIRED;
-    }
-} else {
-    $errors['name'] = NAME_REQUIRED;
-}
-
-
-
-$email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-$inputs['email'] = $email;
-if ($email) {
-    
-    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
-    if ($email === false) {
-        $errors['email'] = EMAIL_INVALID;
-    }
-} else {
-    $errors['email'] = EMAIL_REQUIRED;
-}
-
+        if ($nombre==""||strlen($nombre) < 4){
+            array_push($error, "El campo nombre no puede estar vacio o menor de 4 caracteres");
+            }
+        if ($email == ""){
+            array_push($error, "Debe de escribir su emal");
+          }
+        if(count($error) > 0){
+          echo"<div class=error>";
+            for ($i =0; $i < count($error); $i++){
+              echo "<li>".$error[$i]."</li>";
+            }
+          }
+      }
 ?>
 
       <div id="frase">
@@ -44,7 +32,7 @@ if ($email) {
 
       <div class="contacto">
         <article class="form">
-          <form action="formulario.php" method="post" id="formulario" name="prueba" novalidate>
+          <form action="contacto.php" method="post" id="formulario" name="prueba" novalidate>
 
             <fieldset>
               <legend>Campo personal</legend> 
@@ -113,19 +101,7 @@ if ($email) {
                 </div>
 
             </fieldset>
-                    <?php  if (count($errors) === 0) : ?>
-            section>
-                h2>
-                    Thanks <?php  echo htmlspecialchars($name) ?> for your subscription!
-                h2>
-                p>Please follow the steps below to complete your subscription:p>
-                ol>
-                    li>Check your email (<?php  echo htmlspecialchars($email) ?>) - Find the message sent from webmaster@phpbasico.comli>
-                    li>Click to confirm - Click on the link in the email to confirm your subscription.li>
-                ol>
-            section>
-
-<?php  endif ?>
+              <div class=error></div>
           </form> 
           
         </article>
