@@ -3,33 +3,49 @@
 require'includes/funciones.php';
 IncluirTemplate('header');
 
-  if (isset($_POST['ok'])){
-
-        $nombre = trim($_POST['nombre']);
+ $error = array();
+ $nombre = trim($_POST['nombre']);
+        $apellidos = trim($_POST['apellidos']);
         $email = $_POST['email'];
-        $error = array();
+        $telefono = $_POST['telefono'];
+        $comentario = trim($_POST['comentario']);
+        $articulo = $_POST ['articulo'];
 
-        if ($nombre==""||strlen($nombre) < 4){
-            array_push($error, "El campo nombre no puede estar vacio o menor de 4 caracteres");
+  if (isset($_POST['ok'])){
+       
+        if($nombre == "" || strlen($nombre) < 4){
+            array_push($error, "El campo nombre no puede estar vacio o ser menor de 4 caracteres");
             }
-        if ($email == ""){
-            array_push($error, "Debe de escribir su emal");
+        if($apellidos == "" || strlen($apellidos) < 4){
+            array_push($error, "El campo apellido no puede estar vacio o ser menor de 4 caracteres");
+              }
+
+        if (!preg_match('/\d{9}/',$telefono)){
+          array_push($error, "Debe escribir su número de telefono");       }
+
+        if (!preg_match('/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/',$email)){
+            array_push($error, "Debe de escribir su email correctamente");
           }
+
+        if ($comentario == "" || strlen($comentario) > 400){
+          array_push($error, "Debe de escribir un comentario y este no puede superar los 400 caracteres.");
+        }     
+        
+        if($articulo == "") {
+          array_push($error,"Seleccione un elemento de la lista");
+         }
+
         if(count($error) > 0){
-          echo"<div class=error>";
-            for ($i =0; $i < count($error); $i++){
-              echo "<li>".$error[$i]."</li>";
+          echo "<div class='error'>";
+            for ($i = 0; $i < count($error); $i++){
+              echo "<li>".$error[$i]."</i>";
             }
           }
+          echo "</div>";
       }
 ?>
 
-      <div id="frase">
-        <h3>En sueños nos convertiremos en tu tienda de ropa infantil de referencia, para que tus peques luzcan a la perfección en cualquier evento.</h3>
-        <h3>Nuestra pasión por las últimas tendencias, la satisfacción para nuestros clientes y la confianza de las mejores firmas nacionales de confección infantil.</h3>
-        <h3>Para cualquier duda, reserva o cita contacta con nosotros rellenando este cuestionario.</h3>
-      </div>
-
+     
       <div class="contacto">
         <article class="form">
           <form action="contacto.php" method="post" id="formulario" name="prueba" novalidate>
@@ -39,22 +55,22 @@ IncluirTemplate('header');
 
               <div>
                 <label for="nombre">Nombre*</label>
-                <input type="text" name="nombre" id="nombre" autocomplete="on" required autofocus placeholder="Nombre"></input>
+                <input type="text" name="nombre" id="nombre" autocomplete="on" required autofocus placeholder="Nombre" value="<?php echo $nombre; ?>">
               </div>
 
               <div>
                 <label for="Apellidos">Apellidos*</label>
-                <input type="text" name="Apellidos" autocomplete="on" placeholder="Apellido" id="apellidos"></input>
+                <input type="text" autocomplete="on" placeholder="Apellido" name="apellidos" id="apellidos" value="<?php echo $apellidos; ?>">
               </div>
 
               <div>   
                 <label for="telefono">Telefono*</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="611111111" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required></input>
+                <input type="tel" id="telefono" name="telefono" placeholder="611111111" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required value="<?php echo $telefono; ?>">
               </div>
 
               <div>  
                 <label for="email">Email*</label>
-                <input type="email" name="email" id="email" autocomplete="on" placeholder="Email" <?php  echo $errors['email'] ?? '' ?>>
+                <input type="email" name="email" id="email" autocomplete="on" placeholder="Email" value="<?php echo $email; ?>">
               </div>
 
               <div>
@@ -101,10 +117,16 @@ IncluirTemplate('header');
                 </div>
 
             </fieldset>
-              <div class=error></div>
+              
           </form> 
           
         </article>
+      </div>
+
+      <div id="frase">
+        <h3>En sueños nos convertiremos en tu tienda de ropa infantil de referencia, para que tus peques luzcan a la perfección en cualquier evento.</h3>
+        <h3>Nuestra pasión por las últimas tendencias, la satisfacción para nuestros clientes y la confianza de las mejores firmas nacionales de confección infantil.</h3>
+        <h3>Para cualquier duda, reserva o cita contacta con nosotros rellenando este cuestionario.</h3>
       </div>
 
           <div class="imagen">

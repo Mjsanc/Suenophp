@@ -249,7 +249,10 @@ footer p{
 }
 
 .error{
-  color: red;
+  position: relative;
+  padding: 20px;
+  text-align: center;
+  background-color: #c4e1f1;
 }
 
 

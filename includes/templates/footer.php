@@ -42,4 +42,4 @@
 </div>
 </footer>
 <script src="<?= WEBROOT ?>./assets/js_Arch/bebe.js"></script>
-<script src="<?= WEBROOT ?>./assets/js_Arch/ejmfom.js"></script>
+<!-- <script src="<?= WEBROOT ?>./assets/js_Arch/ejmfom.js"></script> -->
